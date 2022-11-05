@@ -134,7 +134,7 @@ function redrawMinute() {
 
 const ON_COLOR = "#010101";
 //const OFF_COLOR = "#888A7E";
-const OFF_COLOR = "#96988C";
+const OFF_COLOR = "#9D9F93";
 
 function applyVisibility(svg, indices) {
     for (let i = 0; i < svg.children.length; i++) {
