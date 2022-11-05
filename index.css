@@ -35,21 +35,26 @@ body {
 
 h1 {
     text-align: center;
+    color: #EFEFEF;
+    font-size: 50px;
     margin-top: 0;
     margin-bottom: 60px;
     font-family: 'ONE-Mobile-Title';
+    font-weight: normal;
 }
 
 #description {
     font-size: 20px;
-    font-weight: 600;
-    color: #CCCCCC;
+    color: #DEDEDE;
     margin: 20px;
     margin-top: 0;
     font-family: 'ONE-Mobile-Regular';
 }
 #description > div {
     margin-bottom: 5px;
+}
+#current-mode {
+    font-weight: bold;
 }
 
 #clock {
