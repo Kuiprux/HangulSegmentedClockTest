@@ -73,3 +73,10 @@ h1 {
 object {
     padding: 3px;
 }
+
+#copyright {
+    margin-top: 10px;
+    font-family: 'ONE-Mobile-Regular';
+    color: #DDDDDD;
+    text-align: right;
+}
