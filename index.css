@@ -36,46 +36,85 @@ body {
 h1 {
     text-align: center;
     color: #EFEFEF;
-    font-size: 50px;
+    font-size: 5vh;
     margin-top: 0;
-    margin-bottom: 60px;
+    margin-bottom: 6vh;
     font-family: 'ONE-Mobile-Title';
     font-weight: normal;
 }
 
 #description {
-    font-size: 20px;
+    font-size: 2vh;
     color: #DEDEDE;
-    margin: 20px;
+    margin: 2vh;
     margin-top: 0;
     font-family: 'ONE-Mobile-Regular';
 }
 #description > div {
-    margin-bottom: 5px;
+    margin-bottom: 0.5vh;
 }
 #current-mode {
     font-weight: bold;
 }
+#current-mode {
+    font-family: 'ONE-Mobile-Regular';
+    font-size: 1.8vh;
+}
+#current-mode:focus {
+    outline: none;
+    box-shadow: none;
+}
 
 #clock {
     background-color: #A4A69A;
-    padding: 50px 70px;
-    border-radius: 30px;
+    padding: 5vh 5vh;
+    border-radius: 3vh;
+    display: flex;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    flex: 1;
+    margin: 3vh 1vh;
+    font-size: 2vh;
+    font-family: 'ONE-Mobile-Title';
+    padding: 0 1vh;
+}
+button.button {
+    background-color: #95998f;
+    border: none;
+    color: #6b6d66;
+}
+button.button:hover {
+    background-color: #8d8f88;
+    color: #595c54;
+}
+button.button:active {
+    background-color: #82857d;
+    color: #494b45;
+}
+button.button:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 #time-container, #hour-container, #minute-container {
-    padding: 10px;
+    padding: 1vh;
     display: flex;
     flex-direction: row-reverse;
     align-items: flex-start;
 }
 
 object {
-    padding: 3px;
+    padding: 0.3vh;
 }
 
 #copyright {
-    margin-top: 10px;
+    margin-top: 1vh;
     font-family: 'ONE-Mobile-Regular';
     color: #DDDDDD;
     text-align: right;

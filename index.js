@@ -11,12 +11,16 @@ function increaseHour() {
     if (hour > 24) {
         hour = 1;
     }
+    redraw();
+    setCurTimeMode(false);
 }
 function decreaseHour() {
     hour--;
     if (hour < 1) {
         hour = 24;
     }
+    redraw();
+    setCurTimeMode(false);
 }
 function increaseMinute() {
     minute++;
@@ -24,6 +28,8 @@ function increaseMinute() {
         minute = 0;
         increaseHour();
     }
+    redraw();
+    setCurTimeMode(false);
 }
 function decreaseMinute() {
     minute--;
@@ -31,6 +37,8 @@ function decreaseMinute() {
         minute = 59;
         decreaseHour();
     }
+    redraw();
+    setCurTimeMode(false);
 }
 
 const timeData = [
@@ -165,6 +173,18 @@ function setCurTimeMode(shouldEnable) {
     curModeElement.innerText = shouldEnable ? "자동" : "수동";
 }
 
+function toggleCurTimeMode() {
+    if(timeUpdater == null) {
+        timeUpdater = setInterval(updateTime, 500);
+        updateTime();
+        curModeElement.innerText = "자동";
+    } else {
+        clearInterval(timeUpdater);
+        timeUpdater = null;
+        curModeElement.innerText = "수동";
+    }
+}
+
 function updateTime() {
     let today = new Date();
     hour = today.getHours();
@@ -200,26 +220,19 @@ window.onkeydown = function(e) {
     switch (e.key) {
         case "ArrowUp":
             decreaseHour();
-            redraw();
-            setCurTimeMode(false);
             break;
         case "ArrowDown":
             increaseHour();
-            redraw();
-            setCurTimeMode(false);
             break;
         case "ArrowRight":
             increaseMinute();
-            redraw();
-            setCurTimeMode(false);
             break;
         case "ArrowLeft":
             decreaseMinute();
-            redraw();
-            setCurTimeMode(false);
             break;
         case " ":
             setCurTimeMode(true);
+            e.preventDefault();
             break;
     }
 }
