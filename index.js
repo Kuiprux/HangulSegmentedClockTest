@@ -236,15 +236,19 @@ window.onkeydown = function(e) {
     switch (e.key) {
         case "ArrowUp":
             decreaseHour();
+			e.preventDefault();
             break;
         case "ArrowDown":
             increaseHour();
+			e.preventDefault();
             break;
         case "ArrowRight":
             increaseMinute();
+			e.preventDefault();
             break;
         case "ArrowLeft":
             decreaseMinute();
+			e.preventDefault();
             break;
         case " ":
             setCurTimeMode(true);
