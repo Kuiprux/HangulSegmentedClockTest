@@ -41,9 +41,10 @@ function decreaseMinute() {
     setCurTimeMode(false);
 }
 
-//11, 18
-//5, 25, 1
-//19, 1
+//11, 18 -> 29              | 30    5 6     11
+//5, 25, 1 -> 30 + 1        | 30    5 6     11
+//11, 13, 19, 1 -> 43 + 1   | 44    7 7     14
+//36 -> 시프트 레지스터 5개
 
 const timeData = [ //11, 18
     [[1, 4, 5, 6, 7], [4, 5, 6, 7, 9, 11, 12, 16]],         //새벽
@@ -86,7 +87,7 @@ const hourData = [ //5, 25
     [[0, 1, 2, 4], [0, 1, 2, 3, 5, 8, 11, 12, 13, 14, 19, 24]],
     [[0, 1, 2, 4], [2, 3, 4, 5, 13, 14, 15, 17, 18, 21]]
 ]
-
+/*
 const minuteData = [ //19
     [],
     [2, 4, 5, 6, 8, 11, 14, 18],
@@ -99,6 +100,20 @@ const minuteData = [ //19
     [1, 2, 4, 5, 8, 6, 7, 11, 14, 18],
     [1, 2, 3, 6, 11, 12, 15],
     [2, 4, 5, 6, 13, 16, 17, 18]
+];
+*/
+const minuteData = [ //11, 13, 19
+[[], [], []],
+[[0, 2, 3, 5, 6, 8, 10], [0, 2, 3, 5, 6, 9, 12], [2, 4, 5, 6, 8, 11, 14, 18]],
+[[0, 2, 3, 5], [0, 2, 3, 5], [2, 4, 5, 6, 8]],
+[[0, 2, 3, 4, 6, 7, 10], [0, 2, 3, 4, 6, 7, 8, 12], [2, 4, 5, 6, 7, 11, 12, 13, 17, 18]],
+[[0, 2, 3, 4], [0, 2, 3, 4], [2, 4, 5, 6, 7]],
+[[0, 1, 3, 5, 9, 10], [0, 1, 3, 5, 10, 12], [2, 3, 4, 6, 8, 9, 15, 18]],
+[[], [], [2, 3, 4, 6, 8, 9, 10, 11, 12, 17]],
+[[], [], [0, 1, 2, 4, 5, 6, 11, 14, 18]],
+[[], [], [1, 2, 4, 5, 8, 6, 7, 11, 14, 18]],
+[[], [], [1, 2, 3, 6, 11, 12, 15]],
+[[], [0, 2, 3, 8, 11, 12], [2, 4, 5, 6, 13, 16, 17, 18]]
 ];
 
 function redraw() {
@@ -141,15 +156,15 @@ function redrawMinute() {
     
     let curIndex = 2;
     if(minuteRight > 0) {
-        applyVisibility(minuteGroups[curIndex], minuteData[minuteRight]);
+        applyVisibility(minuteGroups[curIndex], minuteData[minuteRight][curIndex]);
         curIndex--;
     }
     if(minuteLeft > 0) {
-        applyVisibility(minuteGroups[curIndex], minuteData[10]);
+        applyVisibility(minuteGroups[curIndex], minuteData[10][curIndex]);
         curIndex--;
     }
     if(minuteLeft > 1) {
-        applyVisibility(minuteGroups[curIndex], minuteData[minuteLeft]);
+        applyVisibility(minuteGroups[curIndex], minuteData[minuteLeft][curIndex]);
         curIndex--;
     }
 
